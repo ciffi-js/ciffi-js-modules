@@ -9,7 +9,7 @@ npm install --save @ciffi-js/moduleName;
 
 * install with yarn
 ```
-npm install --save @ciffi-js/moduleName;
+yarn add @ciffi-js/moduleName;
 ```
 
 * use
