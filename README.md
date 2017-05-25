@@ -1,6 +1,17 @@
 # ciffi-js-modules
 JS Modules
 
+
+* install with npm
+```
+npm install --save @ciffi-js/moduleName;
+```
+
+* install with yarn
+```
+npm install --save @ciffi-js/moduleName;
+```
+
 * use
 ```javascript
 require('@ciffi-js/moduleName');
