@@ -1,6 +1,6 @@
 {
   "name": "@ciffi-js/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JS Utility",
   "main": "./utils.js",
   "repository": {
@@ -22,5 +22,8 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/ciffi/ciffi-js-modules",
-  "preferGlobal": false
+  "preferGlobal": false,
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }
