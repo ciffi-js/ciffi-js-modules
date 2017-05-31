@@ -46,6 +46,7 @@ var Utils = (function () {
 	 * @param {array} images - array of images to preload
 	 * @param {function} allCallback - function called when all images has been loaded
 	 * @param {function} singleCallback - function called when single image has been loaded
+	 * @param {function} errorCallback - function called when single image has a load error
 	 * @memberOf Utils
 	 * @example
 	 * var imagesArray = ['a.jpg','b.png','c.gif'];
@@ -58,7 +59,7 @@ var Utils = (function () {
 	 * }
 	 * utils.preloadImages(imagesArray, allCallback, singleCallback);
 	 */
-	Utils.prototype.preloadImages = function (images, allCallback, singleCallback) {
+	Utils.prototype.preloadImages = function (images, allCallback, singleCallback, errorCallback) {
 		var _loaded = 0;
 		$.each(images, function (index, url) {
 			try {
@@ -75,6 +76,9 @@ var Utils = (function () {
 						allCallback();
 					}
 				};
+				_img.onerror = function (res) {
+					errorCallback(res);
+				}
 				_img.src = url;
 			} catch (err) {
 				var errorMessage = 'Utils.preloadImages() - image preload error - index: ' + index + ', src: ' + url;
@@ -182,7 +186,7 @@ var Utils = (function () {
 
 	};
 
-	return Utils;
+	return new Utils();
 
 })();
 

@@ -3,7 +3,7 @@ JS Utility
 
 * import 
 ```javascript
-const Utils = require('@ciffi-js/device');
+const Utils = require('@ciffi-js/utils');
 
 Utils.resizeEnd(resizeEndCallback, 250);
 ```
