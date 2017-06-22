@@ -47,8 +47,11 @@ var Cookies = (function () {
 	 * myCookie.write();
 	 */
 	Cookies.prototype.write = function () {
+		var _path = this.config.path || '/';
+		var _secure = this.config.secure ? 'secure' : '';
+		var _domain = this.config.domain || '';
 		var expires = checkExpire(this.config.expire);
-		document.cookie = this.config.name + '=' + JSON.stringify(this.config.value) + expires + '; path=/';
+		document.cookie = this.config.name + '=' + JSON.stringify(this.config.value) + expires + ';path=' + _path + ';domain=' + _domain + ';' + _secure;
 	};
 	
 	/**
@@ -82,9 +85,9 @@ var Cookies = (function () {
 		var expires = checkExpire('2002-09-11');
 		document.cookie = this.config.name + '=' + JSON.stringify(this.config.value) + expires + '; path=/';
 	};
-
+	
 	return Cookies;
-
+	
 })();
 
 module.exports = Cookies;
