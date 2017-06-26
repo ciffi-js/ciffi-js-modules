@@ -17,7 +17,7 @@ var Utils = (function () {
 	 * var utils = new Utils();
 	 */
 	function Utils() {
-
+	
 	}
 	
 	/**
@@ -28,17 +28,8 @@ var Utils = (function () {
 	 * utils.loading('show');
 	 * utils.loading('hide');
 	 */
-	Utils.prototype.loading = function (action) {
-		switch (action) {
-			case 'show':
-				$('.js-loading').removeClass('hidden');
-				break;
-			case 'hide':
-				$('.js-loading').addClass('hidden');
-				break;
-			default:
-				break;
-		}
+	Utils.prototype.loader = function (action) {
+		$('.js-loader').toggleClass('is-hidden', action === 'hide');
 	};
 	
 	/**
@@ -71,7 +62,7 @@ var Utils = (function () {
 							src: url
 						});
 					}
-
+					
 					if (_loaded++ === images.length - 1 && allCallback && typeof allCallback === 'function') {
 						allCallback();
 					}
@@ -101,7 +92,7 @@ var Utils = (function () {
 	 * utils.resizeEnd(endCallback, time);
 	 */
 	Utils.prototype.resizeEnd = function (endCallback, time) {
-
+		
 		var _old = {
 			width: window.innerWidth,
 			height: window.innerHeight
@@ -109,7 +100,7 @@ var Utils = (function () {
 		var _rtime = new Date('2000-01-01');
 		var _timeout = false;
 		var _delta = time || 250;
-
+		
 		function _resizeEndInner() {
 			if (new Date() - _rtime < _delta) {
 				setTimeout(_resizeEndInner, _delta);
@@ -128,7 +119,7 @@ var Utils = (function () {
 				};
 			}
 		}
-
+		
 		$(window).resize(function () {
 			_rtime = new Date();
 			if (_timeout === false) {
@@ -136,7 +127,7 @@ var Utils = (function () {
 				setTimeout(_resizeEndInner, _delta);
 			}
 		});
-
+		
 	};
 	
 	/**
@@ -155,14 +146,14 @@ var Utils = (function () {
 	 * utils.scrollEnd(endCallback, element, time);
 	 */
 	Utils.prototype.scrollEnd = function (endCallback, element, time) {
-
+		
 		var _rtime = new Date('2000-01-01');
 		var _timeout = false;
 		var _delta = time || 250;
 		var _el = element || window;
-
+		
 		var _old = $(_el).scrollTop();
-
+		
 		function _scrollEndInner() {
 			if (new Date() - _rtime < _delta) {
 				setTimeout(_scrollEndInner, _delta);
@@ -175,7 +166,7 @@ var Utils = (function () {
 				_old = $(_el).scrollTop();
 			}
 		}
-
+		
 		$(document).on('scroll', _el, function () {
 			_rtime = new Date();
 			if (_timeout === false) {
@@ -183,11 +174,11 @@ var Utils = (function () {
 				setTimeout(_scrollEndInner, _delta);
 			}
 		});
-
+		
 	};
-
+	
 	return new Utils();
-
+	
 })();
 
 module.exports = Utils;

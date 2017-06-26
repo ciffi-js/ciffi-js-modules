@@ -1,6 +1,6 @@
 {
   "name": "@ciffi-js/utils",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "JS Utility",
   "main": "./utils.js",
   "repository": {
