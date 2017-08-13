@@ -1,9 +1,9 @@
-const CONFIG = require('../../../src/scripts/config/config');
-const Pages = require('../../../src/scripts/config/pages');
-const PushState = require('./libs/pushstate');
-const $ = require('jquery');
+var CONFIG = require('../../../src/scripts/config/config');
+var Pages = require('../../../src/scripts/config/pages');
+var PushState = require('./libs/pushstate');
+var $ = require('jquery');
 var Page = require('../../../src/scripts/pages/allpages');
-const Router = function () {
+var Router = function () {
     
     function Router(pages) {
         checkConfig(pages, $.proxy(function () {
