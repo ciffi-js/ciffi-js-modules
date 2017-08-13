@@ -33,7 +33,7 @@ const Router = function () {
     }
     
     function onPagesLoaded(pages, currentRoute) {
-        document.body.classList.add('app-is-ready');
+        document.body.className += ' app-is-ready';
         if (currentRoute) {
             var _currentPage = require('../../../src/scripts/pages/' + currentRoute.route);
             new _currentPage({
@@ -87,7 +87,7 @@ const Router = function () {
     
     Router.prototype.pushState = function (val) {
         if (val) {
-            document.body.classList.add('app-is-ready');
+            document.body.Name += ' app-is-ready';
             this.isPushStateEnabled = PushState.checkSupport();
             if (this.isPushStateEnabled) {
                 PushState.watcher(this.pages, $.proxy(function (data) {
