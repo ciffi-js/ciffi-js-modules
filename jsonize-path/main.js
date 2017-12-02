@@ -28,7 +28,7 @@ function getConfig() {
 	_args.forEach((arg) => {
 		
 		if (!_result.fileName && arg.indexOf('fileName=') >= 0) {
-			_result.fileName = arg.replace('fileName=', '');
+			_result.fileName = './' + _config.srcPathName + '/scripts/config/' + arg.replace('fileName=', '') + '.json';
 		}
 		
 		if (!_result.pathsArray && arg.indexOf('pathsArray=') >= 0) {
