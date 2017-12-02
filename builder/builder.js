@@ -50,11 +50,16 @@ function start() {
 		if (cmd.indexOf('build:') === 0) {
 			_cmd = 'build';
 			_env = cmd.split(':')[1];
+		} else if (opts.env) {
+			_env = opts.env;
 		}
 		
 		switch (_cmd) {
 			case 'build':
 				require('./command/app-build')(_env);
+				break;
+			case 'dev':
+				require('./command/app-dev');
 				break;
 			default:
 				showCommandErrorMessage();

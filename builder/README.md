@@ -1,7 +1,7 @@
 # ciffi-js/builder
 Builder for ciffi js webbpack project
 
-install ad dev dependencies 
+install as dev dependencies 
 ```
 npm i -D @ciffi-js/builder
 ```
