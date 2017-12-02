@@ -1,4 +1,4 @@
-# ciffi-js/builder
+# ciffi-js/jsonize-path
 
 JSON file generator with list of all files in paths
 
