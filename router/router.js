@@ -87,7 +87,7 @@ var Router = function () {
     
     Router.prototype.pushState = function (val) {
         if (val) {
-            document.body.Name += ' app-is-ready';
+            document.body.className += ' app-is-ready';
             this.isPushStateEnabled = PushState.checkSupport();
             if (this.isPushStateEnabled) {
                 PushState.watcher(this.pages, $.proxy(function (data) {
