@@ -30,14 +30,19 @@ var Cookies = (function () {
 	 */
 	function checkExpire(customExpire) {
 		var date;
-		if (!customExpire) {
-			date = new Date();
-			date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60)); // expires in 10 years
+		
+		if (customExpire === false) {
+			return ';';
 		} else {
-			date = new Date(customExpire);
-			date.setTime(date.getTime());
+			if (!customExpire) {
+				date = new Date();
+				date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60)); // expires in 10 years
+			} else {
+				date = new Date(customExpire);
+				date.setTime(date.getTime());
+			}
+			return '; expires=' + date.toGMTString();
 		}
-		return '; expires=' + date.toGMTString();
 	}
 	
 	/**
