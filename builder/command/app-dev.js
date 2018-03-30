@@ -1,6 +1,6 @@
 let chalk = require('chalk');
 //let {spawn} = require('child_process');
-var spawnCommand = require('spawn-command')
+const spawnCommand = require('spawn-command')
 let Log = require('single-line-log').stdout;
 let fileExists = require('file-exists');
 let ConfigFile = process.env.PWD + '/.ciffisettings';
@@ -37,7 +37,8 @@ let Dev = (function () {
     let _createConfig = 'cp ' + _assetPathName + '/scripts/config/env/' + _CONFIG.defaultDevEnv + '.js ' + _assetPathName + '/scripts/config/config.js';
     let _liveCssFirst = './node_modules/.bin/node-sass ' + _assetPathName + '/styles/main.scss ' + _assetPath + '/' + _CONFIG.stylesOutputName + ' --source-map true';
     let _assets = 'ciffi assets';
-    let _liveServer = './node_modules/.bin/livereload ' + _assetPath;
+    //let _liveServer = './node_modules/.bin/livereload ' + _assetPath;
+    let _liveServer = './node_modules/.bin/browser-sync start --config ' + _CONFIG.serverConfig;
     let _liveCss = './node_modules/.bin/node-sass ' + _assetPathName + '/styles/main.scss ' + _assetPath + '/' + _CONFIG.stylesOutputName + ' --watch --source-map true';
     let _liveJs = './node_modules/.bin/webpack --config dev.config.js --progress';
     let _processServer = spawnCommand(_createConfig + _concat + _liveCssFirst + _concat + _assets + _concat + _liveServer);
