@@ -4,6 +4,7 @@ const spawnCommand = require('spawn-command')
 let Log = require('single-line-log').stdout;
 let fileExists = require('file-exists');
 let ConfigFile = process.env.PWD + '/.ciffisettings';
+const Notify = require('./app-notify');
 
 /*const numCPUs = require('os').cpus().length;
 return console.log(numCPUs);*/
@@ -17,6 +18,7 @@ let Dev = (function () {
     if (fileExists.sync(ConfigFile)) {
       _CONFIG = require(ConfigFile);
     } else {
+      Notify.sendError('☠️  Project dev failed: can\'t find .ciffisettings file ☠️');
       console.log(chalk.red.bold('☠️  Project dev failed:') + ' ' + chalk.blue('can\'t find .ciffisettings file ☠️'));
       return console.log('');
     }
@@ -24,6 +26,7 @@ let Dev = (function () {
     if (fileExists.sync(process.env.PWD + '/src/scripts/config/env/' + _CONFIG.defaultDevEnv + '.js')) {
       build();
     } else {
+      Notify.sendError('☠️  Project dev failed: can\'t find src/scripts/config/env/dev' + _CONFIG.defaultDevEnv + '.js file ☠️');
       console.log(chalk.red.bold('☠️  Project dev failed:') + ' ' + chalk.blue('can\'t find src/scripts/config/env/dev' + _CONFIG.defaultDevEnv + '.js file ☠️'));
       return console.log('');
     }
@@ -55,15 +58,22 @@ let Dev = (function () {
   function logger(processes) {
     for (let i = 0; i < processes.length; i++) {
       processes[i].stdout.on('data', function (res) {
-        if (res.indexOf('ERROR in') >= 0 || res.indexOf('Error:') >= 0) {
+        if (res.indexOf('ERROR in') >= 0 || res.indexOf('Error:') >= 0 || res.indexOf('error ') >= 0) {
+          Notify.sendObjError(res);
           console.log(chalk.red(res));
         } else {
+          
+          if (res.indexOf('Entrypoint main = main.js main.js.map') >= 0) {
+            Notify.sendReady('🏗 DEV ready - click to open');
+          }
+          
           Log(chalk.blue(res));
         }
       });
       
       processes[i].stderr.on('data', function (res) {
-        if (res.indexOf('ERROR in') >= 0 || res.indexOf('Error:') >= 0) {
+        if (res.indexOf('ERROR in') >= 0 || res.indexOf('Error:') >= 0 || res.indexOf('error ') >= 0) {
+          Notify.sendObjError(chalk(res));
           console.log(chalk.red(res));
         } else {
           Log(chalk.blue(res));
