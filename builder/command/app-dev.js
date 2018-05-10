@@ -63,7 +63,7 @@ let Dev = (function () {
           console.log(chalk.red(res));
         } else {
           
-          if (res.indexOf('Entrypoint main = main.js main.js.map') >= 0) {
+          if (res.indexOf('Entrypoint main = main.js main.js.map') >= 0 || res.indexOf('Entrypoint main [big] = main.js main.js.map')) {
             Notify.sendReady('🏗 DEV ready - click to open');
           }
           
