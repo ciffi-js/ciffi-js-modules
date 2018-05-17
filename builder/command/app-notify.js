@@ -16,7 +16,9 @@ class Notify {
       actions: [ConfigFile.devStartUrl],
       open: ConfigFile.devStartUrl
     }, (error, response, metadata) => {
-      exec('open ' + metadata.activationValue);
+      if (metadata && metadata.activationValue) {
+        exec('open ' + metadata.activationValue);
+      }
     });
   }
   

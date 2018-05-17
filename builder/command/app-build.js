@@ -4,6 +4,8 @@ let exec = require('child_process').exec;
 let Log = require('single-line-log').stdout;
 let ConfigFile = process.env.PWD + '/.ciffisettings';
 
+Log = console.log;
+
 let Build = (function (env) {
 	
 	let _CONFIG;
