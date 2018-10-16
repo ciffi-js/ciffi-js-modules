@@ -5,15 +5,15 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://ciffi@github.com/ciffi/ciffi-js-modules.git"
+    "url": "git+https://ciffi@github.com/ciffi-js/ciffi-js-modules.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ciffi/ciffi-js-modules/issues"
+    "url": "https://github.com/ciffi-js/ciffi-js-modules/issues"
   },
-  "homepage": "https://github.com/ciffi/ciffi-js-modules#readme",
+  "homepage": "https://github.com/ciffi-js/ciffi-js-modules#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",

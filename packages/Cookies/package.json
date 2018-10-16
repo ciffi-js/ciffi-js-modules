@@ -5,7 +5,7 @@
   "main": "Cookies.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ciffi/ciffi-js-modules/"
+    "url": "git+https://github.com/ciffi-js/ciffi-js-modules/"
   },
   "author": {
     "name": "Ciffi"
@@ -21,6 +21,6 @@
     "cookies"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/ciffi/ciffi-js-modules",
+  "homepage": "https://github.com/ciffi-js/ciffi-js-modules",
   "preferGlobal": false
 }
