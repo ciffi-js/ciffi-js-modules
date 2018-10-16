@@ -38,3 +38,19 @@ read more from each module
 ##### run frontend project
 
 - npm start
+
+##### run test
+
+- npm test
+
+##### run test with watch mode
+
+- npm run test:dev
+
+##### run test with coverage report
+
+- npm run test:coverage
+
+##### run test with watch mode and coverage report
+
+- npm run test:dev:coverage

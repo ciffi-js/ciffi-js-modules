@@ -15,15 +15,43 @@
   },
   "homepage": "https://github.com/ciffi/ciffi-js-modules#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-dynamic-import-node": "^2.1.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "husky": "^0.14.3",
     "lerna": "^2.11.0",
     "prettier": "^1.14.2",
-    "pretty-quick": "^1.6.0"
+    "pretty-quick": "^1.6.0",
+    "jest": "^23.5.0"
   },
   "scripts": {
     "prepare-dev": "npm install && npm run lerna bootstrap && cd frontend && npm install",
-    "test": "cd frontend && npm run test-dev",
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "test:coverage": "jest --coverage --watchAll",
+    "test:dev:coverage": "jest --watchAll --coverage",
     "lerna": "./node_modules/.bin/lerna $1",
     "start": "cd frontend && npm start"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "Config": "<rootDir>/frontend/src/scripts/config/config.js",
+      "Theme": "<rootDir>/frontend/src/scripts/config/theme.js",
+      "^.+\\.(css|scss)$": "babel-jest"
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/packages/**/*.{js,jsx}",
+      "!<rootDir>/packages/**/node_modules/*.{js,jsx}"
+    ]
   }
 }

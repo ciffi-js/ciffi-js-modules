@@ -1,0 +1,44 @@
+{
+  "presets": [
+    "env",
+    "react",
+    "es2017",
+    "stage-0"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": false,
+        //set true when debug only
+        "fileName": false
+      }
+    ],
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "Config": "./src/scripts/config/config.js",
+          "Theme": "./src/scripts/config/theme.js",
+          "Routes": "./src/scripts/config/routes.js"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"]
+    }
+  }
+}
