@@ -24,6 +24,6 @@
   "homepage": "https://github.com/ciffi/ciffi-js-modules",
   "preferGlobal": false,
   "dependencies": {
-    "@ciffi-js/utils": "^1.0.0"
+    "@ciffi-js/Utils": "^1.0.0"
   }
 }
