@@ -1,8 +1,8 @@
 {
-  "name": "@ciffi-js/jsonize-path",
+  "name": "@ciffi-js/utils",
   "version": "1.0.4",
-  "description": "It generates json file with list of all files in path recursively",
-  "main": "./main.js",
+  "description": "JS Utility",
+  "main": "Utils.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ciffi/ciffi-js-modules/"
@@ -18,19 +18,10 @@
     "development",
     "web",
     "module",
-    "javascript utility",
-    "javascript builder",
-    "json",
-    "path to jopn"
+    "javascript utility"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ciffi/ciffi-js-modules",
   "preferGlobal": false,
-  "bin": {
-    "ciffi-jsonize": "./main.js"
-  },
-  "dependencies": {
-    "chalk": "^2.1.0",
-    "file-exists": "^4.0.0"
-  }
+  "dependencies": {}
 }

@@ -1,8 +1,8 @@
 {
-  "name": "@ciffi-js/router",
-  "version": "2.0.4",
-  "description": "JS Router with twigjs and pushState support",
-  "main": "./router.js",
+  "name": "@ciffi-js/custom-select",
+  "version": "1.0.1",
+  "description": "JS Custom Select",
+  "main": "CustomSelect.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ciffi/ciffi-js-modules/"
@@ -18,10 +18,10 @@
     "development",
     "web",
     "module",
-    "router",
-    "pushState"
+    "custom select"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ciffi/ciffi-js-modules",
-  "preferGlobal": false
+  "preferGlobal": false,
+  "dependencies": {}
 }

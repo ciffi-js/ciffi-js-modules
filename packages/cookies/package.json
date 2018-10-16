@@ -2,7 +2,7 @@
   "name": "@ciffi-js/cookies",
   "version": "1.0.2",
   "description": "JS Cookies",
-  "main": "./cookies.js",
+  "main": "Cookies.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ciffi/ciffi-js-modules/"
