@@ -1,0 +1,62 @@
+@mixin ratio($w, $h) {
+  @if $w == 0 {
+    &:before {
+      display: none;
+    }
+  } @else {
+    &:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-bottom: ($h/$w) * 100%;
+    }
+  }
+}
+
+@mixin placeholder() {
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    @content;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    @content;
+  }
+
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    @content;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    @content;
+  }
+}
+
+@mixin autofill($bg, $text) {
+  *:-webkit-autofill,
+  *:-webkit-autofill:hover,
+  *:-webkit-autofill:focus,
+  *:-webkit-autofill:active {
+    box-shadow: 0 0 0 100vh $bg inset !important;
+    -webkit-text-fill-color: $text !important;
+  }
+}
+
+@function vw($size, $breakpoint-max-w: 1920) {
+  $context: ($breakpoint-max-w * 0.01);
+  $result: round($size * 100 / $context) / 100;
+  @return #{$result}vw;
+}
+
+@function vh($size, $breakpoint-max-h: 1080) {
+  $context: ($breakpoint-max-h * 0.01);
+  $result: round($size * 100 / $context) / 100;
+  @return #{$result}vh;
+}
+
+@function rem($size) {
+  @return #{$size / 16}rem;
+}

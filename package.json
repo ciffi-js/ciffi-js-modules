@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ciffi/ciffi-js-modules/issues"
   },
@@ -21,7 +21,9 @@
     "pretty-quick": "^1.6.0"
   },
   "scripts": {
-    "test": "node ./test.js",
-    "lerna": "./node_modules/.bin/lerna $1"
+    "prepare-dev": "npm install && npm run lerna bootstrap && cd frontend && npm install",
+    "test": "cd frontend && npm run test-dev",
+    "lerna": "./node_modules/.bin/lerna $1",
+    "start": "cd frontend && npm start"
   }
 }

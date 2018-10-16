@@ -1,0 +1,6 @@
+build.config.js
+dev.config.js
+package.json
+package-lock.json
+src/styles/font-awesome/
+/static
