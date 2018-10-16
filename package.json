@@ -38,7 +38,7 @@
     "prepare-dev": "npm install && npm run lerna bootstrap && cd frontend && npm install",
     "test": "jest",
     "test:dev": "jest --watchAll",
-    "test:coverage": "jest --coverage --watchAll",
+    "test:coverage": "jest --coverage",
     "test:dev:coverage": "jest --watchAll --coverage",
     "lerna": "./node_modules/.bin/lerna $1",
     "start": "cd frontend && npm start"
